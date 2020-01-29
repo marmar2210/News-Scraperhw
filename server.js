@@ -13,12 +13,9 @@ var request = require("request");
 var cheerio = require("cheerio");
 
 mongoose.Promise = Promise;
-mongoose.connect(
-  //"mongodb://heroku_xd394bdd:ncntvcs1jnacmt48iaiodvflb7@ds161016.mlab.com:61016/heroku_xd394bdd",
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect({
+  useMongoClient: true
+});
 
 var db = mongoose.connection;
 
@@ -77,7 +74,7 @@ app.get("/saved", function(req, res) {
 });
 
 app.get("/scrape", function(req, res) {
-  request("https://www.nytimes.com/", function(error, response, html) {
+  request("https://www.artnews.com/", function(error, response, html) {
     var $ = cheerio.load(html);
     $("article").each(function(i, element) {
       var result = {};
@@ -102,7 +99,7 @@ app.get("/scrape", function(req, res) {
         }
       });
     });
-    res.send("Scrape Complete");
+    res.send("Scrape More Articles");
   });
 });
 
@@ -194,7 +191,7 @@ app.delete("/notes/delete/:note_id/:article", function(req, res) {
           console.log(err);
           res.send(err);
         } else {
-          res.send("Note Deleted");
+          res.send("Delete from Saved");
         }
       });
     }
