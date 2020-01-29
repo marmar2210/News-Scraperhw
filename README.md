@@ -8,6 +8,8 @@ First, click the "Scrape Articles" button at the top of the page to see the most
 
 To review all saved articles, click the "Saved Articles" link located in the Nav bar. Here you should see your saved articles, and you are able to both "unsave" them or write a note about the article. Click the "Add/View Notes" button to write a note or see previous notes!
 
+https://art-news-scraper.herokuapp.com/
+
 
 
 
